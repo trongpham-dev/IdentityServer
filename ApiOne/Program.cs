@@ -1,14 +1,17 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddAuthentication("Bearer")
-    .AddJwtBearer("Bearer", config =>
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(config =>
     {
         // specify where to pass access token to validate it (identity server)
         config.Authority = "https://localhost:7299/";
 
         // Identifying what resources trying to pass this token for authentication
-        config.Audience = "ApiOne";
+        config.Audience = "apione";
+        config.SaveToken = true;
     });
 builder.Services.AddControllers();
 

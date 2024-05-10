@@ -3,6 +3,7 @@ using IdentityServer;
 using IdentityServer.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,9 +32,11 @@ builder.Services.ConfigureApplicationCookie(config =>
 
 //Identity server is just a toolbox allows us to set up the infrastructure for authen vs author using OIDC flows 
 builder.Services.AddIdentityServer()
+    .AddAspNetIdentity<IdentityUser>()
     .AddInMemoryApiResources(Configuration.GetApis())
     .AddInMemoryIdentityResources(Configuration.GetIdentityResources())
     .AddInMemoryClients(Configuration.GetClients())
+    .AddInMemoryApiScopes(Configuration.ApiScopes)
     .AddDeveloperSigningCredential(); // generate developer certification to sign tokens (use secret key)
 
 builder.Services.AddControllersWithViews();
@@ -46,6 +49,8 @@ using(var scope = app.Services.CreateScope())
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
     var user = new IdentityUser("bob");
     userManager.CreateAsync(user, "password").GetAwaiter().GetResult();
+    userManager.AddClaimAsync(user, new Claim("rc.garndma", "big.cookie")).GetAwaiter().GetResult(); // added to id_token
+    userManager.AddClaimAsync(user, new Claim("rc.api.garndma", "big.api.cookie")).GetAwaiter().GetResult(); // added to access_token
 }
 
 app.UseRouting();

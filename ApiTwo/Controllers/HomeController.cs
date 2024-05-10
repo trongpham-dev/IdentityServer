@@ -28,7 +28,7 @@ namespace ApiTwo.Controllers
                 Address = discoveryDocument.TokenEndpoint,
                 ClientId = "client_id",
                 ClientSecret = "client_secret",
-                Scope = "ApiOne"
+                Scope = "apione"
             });
 
             //retrieve secret data
