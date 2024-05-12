@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer.csproj", "{DB4DD13A-DC2C-4EE8-A777-7BBDF92870E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer.csproj", "{DB4DD13A-DC2C-4EE8-A777-7BBDF92870E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiOne", "..\ApiOne\ApiOne.csproj", "{B04D3C4B-FC24-462A-A96C-E90D3D5ED6F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiOne", "..\ApiOne\ApiOne.csproj", "{B04D3C4B-FC24-462A-A96C-E90D3D5ED6F9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTwo", "..\ApiTwo\ApiTwo.csproj", "{4BCEE972-4CB7-48E0-8B62-70BFB35B0B7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcClient", "..\MvcClient\MvcClient.csproj", "{ECCA9111-BFD3-4B03-B949-6C07B47ACECF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcClient", "..\MvcClient\MvcClient.csproj", "{ECCA9111-BFD3-4B03-B949-6C07B47ACECF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavascriptClient", "..\JavascriptClient\JavascriptClient.csproj", "{150E62BF-23C2-4736-8811-159AD1BB21C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{ECCA9111-BFD3-4B03-B949-6C07B47ACECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECCA9111-BFD3-4B03-B949-6C07B47ACECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECCA9111-BFD3-4B03-B949-6C07B47ACECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{150E62BF-23C2-4736-8811-159AD1BB21C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{150E62BF-23C2-4736-8811-159AD1BB21C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{150E62BF-23C2-4736-8811-159AD1BB21C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{150E62BF-23C2-4736-8811-159AD1BB21C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

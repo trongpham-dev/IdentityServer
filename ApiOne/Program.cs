@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         config.Audience = "apione";
         config.SaveToken = true;
     });
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "_myAllowSpecificOrigins",
+                      policy =>
+                      {
+                          policy.AllowAnyHeader();
+                          policy.WithOrigins("http://localhost:3000", "https://localhost:7141");
+                      });
+});
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -20,6 +32,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
+
+app.UseCors("_myAllowSpecificOrigins");
 
 app.UseAuthentication();
 app.UseAuthorization();

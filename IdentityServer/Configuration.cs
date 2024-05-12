@@ -69,6 +69,17 @@ namespace IdentityServer
                     //AlwaysIncludeUserClaimsInIdToken = true,
                     AllowOfflineAccess = true, // enable refresh_token because it's optional by default
                     RequireConsent = false
+                },
+                new Client
+                {
+                    ClientId = "client_id_js",
+                    RedirectUris = { "https://localhost:7141/Home/signin" },
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedCorsOrigins = {"https://localhost:7141"},
+                    AllowedScopes = { "apione", "openid", "rc.scope", "apitwo"}, // try to use constant instead. IdentityServerConstants.StandardScopes.Profile
+                    AccessTokenLifetime = 10,
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false
                 }
             };
     }
